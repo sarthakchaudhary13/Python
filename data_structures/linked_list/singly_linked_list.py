@@ -70,7 +70,8 @@ class LinkedList:
         # Return prev in order to put the head at the end
         self.head = prev
 
-    def __repr__(self):  # String representation/visualization of a Linked Lists
+    def __repr__(
+            self):  # String representation/visualization of a Linked Lists
         current = self.head
         string_repr = ""
         while current:

@@ -1,6 +1,5 @@
 # Diophantine Equation : Given integers a,b,c ( at least one of a and b != 0), the diophantine equation
 # a*x + b*y = c has a solution (where x and y are integers) iff gcd(a,b) divides c.
-
 # GCD ( Greatest Common Divisor ) or HCF ( Highest Common Factor )
 
 
@@ -17,10 +16,10 @@ def diophantine(a, b, c):
 
     """
 
-    assert (
-        c % greatest_common_divisor(a, b) == 0
-    )  # greatest_common_divisor(a,b) function implemented below
-    (d, x, y) = extended_gcd(a, b)  # extended_gcd(a,b) function implemented below
+    assert (c % greatest_common_divisor(a, b) == 0
+            )  # greatest_common_divisor(a,b) function implemented below
+    (d, x, y) = extended_gcd(a,
+                             b)  # extended_gcd(a,b) function implemented below
     r = c / d
     return (r * x, r * y)
 

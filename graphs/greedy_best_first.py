@@ -1,8 +1,8 @@
 """
 https://en.wikipedia.org/wiki/Best-first_search#Greedy_BFS
 """
-
-from typing import List, Tuple
+from typing import List
+from typing import Tuple
 
 grid = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -106,7 +106,8 @@ class GreedyBestFirst:
                     self.open_nodes.append(child_node)
                 else:
                     # retrieve the best current path
-                    better_node = self.open_nodes.pop(self.open_nodes.index(child_node))
+                    better_node = self.open_nodes.pop(
+                        self.open_nodes.index(child_node))
 
                     if child_node.g_cost < better_node.g_cost:
                         self.open_nodes.append(child_node)
@@ -125,7 +126,8 @@ class GreedyBestFirst:
             pos_x = parent.pos_x + action[1]
             pos_y = parent.pos_y + action[0]
 
-            if not (0 <= pos_x <= len(grid[0]) - 1 and 0 <= pos_y <= len(grid) - 1):
+            if not (0 <= pos_x <= len(grid[0]) - 1
+                    and 0 <= pos_y <= len(grid) - 1):
                 continue
 
             if grid[pos_y][pos_x] != 0:
@@ -139,8 +141,7 @@ class GreedyBestFirst:
                     self.target.pos_x,
                     parent.g_cost + 1,
                     parent,
-                )
-            )
+                ))
         return successors
 
     def retrace_path(self, node: Node) -> List[Tuple[int]]:

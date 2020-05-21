@@ -1,9 +1,9 @@
 """
 https://en.wikipedia.org/wiki/Bidirectional_search
 """
-
 import time
-from typing import List, Tuple
+from typing import List
+from typing import Tuple
 
 grid = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -93,7 +93,8 @@ class AStar:
                     self.open_nodes.append(child_node)
                 else:
                     # retrieve the best current path
-                    better_node = self.open_nodes.pop(self.open_nodes.index(child_node))
+                    better_node = self.open_nodes.pop(
+                        self.open_nodes.index(child_node))
 
                     if child_node.g_cost < better_node.g_cost:
                         self.open_nodes.append(child_node)
@@ -111,7 +112,8 @@ class AStar:
         for action in delta:
             pos_x = parent.pos_x + action[1]
             pos_y = parent.pos_y + action[0]
-            if not (0 < pos_x < len(grid[0]) - 1 and 0 < pos_y < len(grid) - 1):
+            if not (0 < pos_x < len(grid[0]) - 1
+                    and 0 < pos_y < len(grid) - 1):
                 continue
 
             if grid[pos_y][pos_x] != 0:
@@ -157,7 +159,8 @@ class BidirectionalAStar:
 
             if current_bwd_node.pos == current_fwd_node.pos:
                 self.reached = True
-                self.retrace_bidirectional_path(current_fwd_node, current_bwd_node)
+                self.retrace_bidirectional_path(current_fwd_node,
+                                                current_bwd_node)
                 break
 
             self.fwd_astar.closed_nodes.append(current_fwd_node)
@@ -167,8 +170,10 @@ class BidirectionalAStar:
             self.bwd_astar.target = current_fwd_node
 
             successors = {
-                self.fwd_astar: self.fwd_astar.get_successors(current_fwd_node),
-                self.bwd_astar: self.bwd_astar.get_successors(current_bwd_node),
+                self.fwd_astar:
+                self.fwd_astar.get_successors(current_fwd_node),
+                self.bwd_astar:
+                self.bwd_astar.get_successors(current_bwd_node),
             }
 
             for astar in [self.fwd_astar, self.bwd_astar]:
@@ -181,17 +186,15 @@ class BidirectionalAStar:
                     else:
                         # retrieve the best current path
                         better_node = astar.open_nodes.pop(
-                            astar.open_nodes.index(child_node)
-                        )
+                            astar.open_nodes.index(child_node))
 
                         if child_node.g_cost < better_node.g_cost:
                             astar.open_nodes.append(child_node)
                         else:
                             astar.open_nodes.append(better_node)
 
-    def retrace_bidirectional_path(
-        self, fwd_node: Node, bwd_node: Node
-    ) -> List[Tuple[int]]:
+    def retrace_bidirectional_path(self, fwd_node: Node,
+                                   bwd_node: Node) -> List[Tuple[int]]:
         fwd_path = self.fwd_astar.retrace_path(fwd_node)
         bwd_path = self.bwd_astar.retrace_path(bwd_node)
         fwd_path.reverse()
