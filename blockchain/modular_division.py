@@ -45,6 +45,7 @@ def invert_modulo(a, n):
 
 # ------------------ Finding Modular division using invert_modulo -------------------
 
+
 # This function used the above inversion of a to find x = (b*a^(-1))mod n
 def modular_division2(a, b, n):
     """

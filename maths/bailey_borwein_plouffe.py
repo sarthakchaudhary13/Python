@@ -42,20 +42,17 @@ def bailey_borwein_plouffe(digit_position: int, precision: int = 1000) -> str:
         raise ValueError("Precision must be a nonnegative integer")
 
     # compute an approximation of (16 ** (n - 1)) * pi whose fractional part is mostly accurate
-    sum_result = (
-        4 * _subsum(digit_position, 1, precision)
-        - 2 * _subsum(digit_position, 4, precision)
-        - _subsum(digit_position, 5, precision)
-        - _subsum(digit_position, 6, precision)
-    )
+    sum_result = (4 * _subsum(digit_position, 1, precision) -
+                  2 * _subsum(digit_position, 4, precision) -
+                  _subsum(digit_position, 5, precision) -
+                  _subsum(digit_position, 6, precision))
 
     # return the first hex digit of the fractional part of the result
     return hex(int((sum_result % 1) * 16))[2:]
 
 
-def _subsum(
-    digit_pos_to_extract: int, denominator_addend: int, precision: int
-) -> float:
+def _subsum(digit_pos_to_extract: int, denominator_addend: int,
+            precision: int) -> float:
     # only care about first digit of fractional part; don't need decimal
     """
     Private helper function to implement the summation
@@ -72,9 +69,8 @@ def _subsum(
         if sum_index < digit_pos_to_extract:
             # if the exponential term is an integer and we mod it by the denominator before
             # dividing, only the integer part of the sum will change; the fractional part will not
-            exponential_term = pow(
-                16, digit_pos_to_extract - 1 - sum_index, denominator
-            )
+            exponential_term = pow(16, digit_pos_to_extract - 1 - sum_index,
+                                   denominator)
         else:
             exponential_term = pow(16, digit_pos_to_extract - 1 - sum_index)
         sum += exponential_term / denominator

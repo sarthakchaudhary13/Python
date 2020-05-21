@@ -16,10 +16,10 @@ def diophantine(a, b, c):
 
     """
 
-    assert (
-        c % greatest_common_divisor(a, b) == 0
-    )  # greatest_common_divisor(a,b) function implemented below
-    (d, x, y) = extended_gcd(a, b)  # extended_gcd(a,b) function implemented below
+    assert (c % greatest_common_divisor(a, b) == 0
+            )  # greatest_common_divisor(a,b) function implemented below
+    (d, x, y) = extended_gcd(a,
+                             b)  # extended_gcd(a,b) function implemented below
     r = c / d
     return (r * x, r * y)
 

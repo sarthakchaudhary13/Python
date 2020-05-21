@@ -31,10 +31,10 @@ def atbash(sequence: str) -> str:
     'zD;;123YC'
     """
     letters = string.ascii_letters
-    letters_reversed = string.ascii_lowercase[::-1] + string.ascii_uppercase[::-1]
-    return "".join(
-        letters_reversed[letters.index(c)] if c in letters else c for c in sequence
-    )
+    letters_reversed = string.ascii_lowercase[::-1] + string.ascii_uppercase[::
+                                                                             -1]
+    return "".join(letters_reversed[letters.index(c)] if c in letters else c
+                   for c in sequence)
 
 
 def benchmark() -> None:
@@ -46,7 +46,8 @@ def benchmark() -> None:
         "> atbash_slow()",
         timeit(
             "atbash_slow(printable)",
-            setup="from string import printable ; from __main__ import atbash_slow",
+            setup=
+            "from string import printable ; from __main__ import atbash_slow",
         ),
         "seconds",
     )
