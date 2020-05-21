@@ -106,8 +106,7 @@ class GreedyBestFirst:
                     self.open_nodes.append(child_node)
                 else:
                     # retrieve the best current path
-                    better_node = self.open_nodes.pop(
-                        self.open_nodes.index(child_node))
+                    better_node = self.open_nodes.pop(self.open_nodes.index(child_node))
 
                     if child_node.g_cost < better_node.g_cost:
                         self.open_nodes.append(child_node)

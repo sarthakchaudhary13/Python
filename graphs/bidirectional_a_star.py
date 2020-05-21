@@ -93,8 +93,7 @@ class AStar:
                     self.open_nodes.append(child_node)
                 else:
                     # retrieve the best current path
-                    better_node = self.open_nodes.pop(
-                        self.open_nodes.index(child_node))
+                    better_node = self.open_nodes.pop(self.open_nodes.index(child_node))
 
                     if child_node.g_cost < better_node.g_cost:
                         self.open_nodes.append(child_node)
@@ -158,8 +157,7 @@ class BidirectionalAStar:
 
             if current_bwd_node.pos == current_fwd_node.pos:
                 self.reached = True
-                self.retrace_bidirectional_path(
-                    current_fwd_node, current_bwd_node)
+                self.retrace_bidirectional_path(current_fwd_node, current_bwd_node)
                 break
 
             self.fwd_astar.closed_nodes.append(current_fwd_node)
