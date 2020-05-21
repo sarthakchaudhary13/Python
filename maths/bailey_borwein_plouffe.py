@@ -1,10 +1,10 @@
 def bailey_borwein_plouffe(digit_position: int, precision: int = 1000) -> str:
     """
-    Implement a popular pi-digit-extraction algorithm known as the 
+    Implement a popular pi-digit-extraction algorithm known as the
     Bailey-Borwein-Plouffe (BBP) formula to calculate the nth hex digit of pi.
     Wikipedia page:
     https://en.wikipedia.org/wiki/Bailey%E2%80%93Borwein%E2%80%93Plouffe_formula
-    @param digit_position: a positive integer representing the position of the digit to extract. 
+    @param digit_position: a positive integer representing the position of the digit to extract.
     The digit immediately after the decimal point is located at position 1.
     @param precision: number of terms in the second summation to calculate.
     A higher number reduces the chance of an error but increases the runtime.
@@ -59,11 +59,11 @@ def _subsum(
     # only care about first digit of fractional part; don't need decimal
     """
     Private helper function to implement the summation
-    functionality. 
+    functionality.
     @param digit_pos_to_extract: digit position to extract
     @param denominator_addend: added to denominator of fractions in the formula
     @param precision: same as precision in main function
-    @return: floating-point number whose integer part is not important 
+    @return: floating-point number whose integer part is not important
     """
     sum = 0.0
     for sum_index in range(digit_pos_to_extract + precision):
