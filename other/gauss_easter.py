@@ -30,7 +30,8 @@ def gauss_easter(year: int) -> datetime:
     secular_moon_shift = (
         15 - lunar_orbit_correction + leap_day_inhibits - leap_day_reinstall_number
     ) % 30
-    century_starting_point = (4 + leap_day_inhibits - leap_day_reinstall_number) % 7
+    century_starting_point = (
+        4 + leap_day_inhibits - leap_day_reinstall_number) % 7
 
     # days to be added to March 21
     days_to_add = (19 * metonic_cycle + secular_moon_shift) % 30
