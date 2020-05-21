@@ -1,9 +1,9 @@
-class Node:  # create a Node
+class Node:
     def __init__(self, data):
-        self.data = data  # given data
-        self.next = None  # given next to None
+        self.data = data
+        self.next = None
 
-    def __repr__(self):  # string representation of a Node
+    def __repr__(self):
         return f"Node({self.data})"
 
 
@@ -106,7 +106,7 @@ class LinkedList:
                 raise IndexError("Index out of range.")
             current = current.next
         current.data = data
-       
+
     def __len__(self):
         """
         Return length of linked list i.e. number of nodes
