@@ -1,8 +1,8 @@
 """
 https://en.wikipedia.org/wiki/Best-first_search#Greedy_BFS
 """
-
-from typing import List, Tuple
+from typing import List
+from typing import Tuple
 
 grid = [
     [0, 0, 0, 0, 0, 0, 0],

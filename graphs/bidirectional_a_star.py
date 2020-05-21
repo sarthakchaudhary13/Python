@@ -1,9 +1,9 @@
 """
 https://en.wikipedia.org/wiki/Bidirectional_search
 """
-
 import time
-from typing import List, Tuple
+from typing import List
+from typing import Tuple
 
 grid = [
     [0, 0, 0, 0, 0, 0, 0],

@@ -1,15 +1,10 @@
 # Modular Division :
 # An efficient algorithm for dividing b by a modulo n.
-
 # GCD ( Greatest Common Divisor ) or HCF ( Highest Common Factor )
-
 # Given three integers a, b, and n, such that gcd(a,n)=1 and n>1, the algorithm should return an integer x such that
 #        0≤x≤n−1, and  b/a=x(modn) (that is, b=ax(modn)).
-
 # Theorem:
 # a has a multiplicative inverse modulo n iff gcd(a,n) = 1
-
-
 # This find x = b*a^(-1) mod n
 # Uses ExtendedEuclid to find the inverse of a
 
